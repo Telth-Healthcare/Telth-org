@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@layer base {
+
+  :root {
+    /* Premium Color Palette - High Contrast */
+    --white: 0 0% 100%;
+    --off-white: 210 20% 99%;
+    --cream: 37 100% 97%;
+    --gold-primary: 43 56% 58%;
+    --gold-light: 43 65% 70%;
+    --navy-text: 217 67% 15%;
+    --navy-900: 215 50% 8%;
+    --charcoal-text: 213 13% 34%;
+    --gray-light: 214 32% 91%;
+    --gray-border: 214 15% 91%;
+
+    /* Semantic Tokens - High Contrast Design */
+    --background: 0 0% 100%;
+    --foreground: 217 67% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 217 67% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 217 67% 15%;
+    --primary: 48, 97%, 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 52% 24%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 37 100% 97%;
+    --muted-foreground: 213 13% 34%;
+    --accent: 210 20% 99%;
+    --accent-foreground: 217 67% 15%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 15% 91%;
+    --input: 214 15% 91%;
+    --ring: 43 56% 58%;
+    --radius: 0.75rem;
+    --mainColor: 0 0% 13%;
+
+    /* Premium Shadows */
+    --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
+    --shadow-elevated: 0 8px 24px rgba(0, 0, 0, 0.08);
+    --shadow-gold: 0 4px 16px rgba(212, 165, 84, 0.25);
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Roboto', sans-serif;
+  }
+
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.leaflet-container {
+  font-family: 'Inter', sans-serif;
+}
+
+.card-hover {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border-color: hsl(var(--primary));
+}
+
+/* Number Prefix Style */
+.card-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: hsl(var(--primary));
+  opacity: 0.2;
+}
+
+@keyframes gold-glow {
+  0% {
+    box-shadow: 0 0 10px rgba(239, 191, 4, 0.4), 0 0 20px rgba(239, 191, 4, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 18px rgba(239, 191, 4, 0.7), 0 0 40px rgba(239, 191, 4, 0.4);
+  }
+
+  100% {
+    box-shadow: 0 0 10px rgba(239, 191, 4, 0.4), 0 0 20px rgba(239, 191, 4, 0.2);
+  }
+}
+
+.animate-gold-glow {
+  animation: gold-glow 3s ease-in-out infinite;
+}
+
+@keyframes soft-bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-soft-bounce {
+  animation: soft-bounce 3s ease-in-out infinite;
+}
