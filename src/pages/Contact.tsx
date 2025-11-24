@@ -6,59 +6,63 @@ import { Mail, Phone, MapPin, Send, Briefcase, Users, Handshake, Newspaper } fro
 const offices = [
   {
     flag: '🇺🇸',
-    country: 'USA Headquarters',
-    name: 'Telth Holdings Inc',
-    address: '909 Rose Ave, Suite 400-500\nRockville, MD 20852, USA',
+    name: 'USA Headquarters',
+    company: 'Telth Holdings Inc',
+    address: 'Suite 400, 909 Rose Ave\nRockville, Maryland 20852, USA',
     email: 'info@telth.org',
     phone: '+1 (234) 564-4564',
   },
   {
     flag: '🇬🇧',
-    country: 'United Kingdom',
-    name: 'Telth Healthcare Pvt Ltd (UK)',
-    address: 'Botanica, Ditton Park\nRiding Ct Rd, Slough SL3 9LL',
-    email: 'uk@telth.org',
-    phone: '+44 12353 90827',
+    name: 'United Kingdom',
+    company: 'Telth Healthcare Pvt Ltd (UK)',
+    address: 'Suite 14, Ditton Park\nBotanica, Riding Ct Rd\nSlough - SL3 9LL, UK',
+    email: 'info@telth.org',
+    phone: '+44 7554 469843',
   },
   {
     flag: '🇮🇳',
-    country: 'India - Delhi',
-    name: 'Telth Healthcare Pvt Ltd (India)',
-    address: '3rd Floor, Vardhaman Trade Center\nGate No. 1, Opp. SBI, Nehru Place\nNew Delhi - 110019, India',
-    email: 'india@telth.org',
-    phone: '+91 99107 00028',
+    name: 'India - New Delhi',
+    company: 'Telth Healthcare Pvt Ltd (India)',
+    address: 'The Chambers Vardhaman Trade Center\n3rd Floor, Nehru Place\nNew Delhi 110019, India',
+    email: 'info@telth.org',
+    phone: '1800-570-0140',
   },
   {
     flag: '🇮🇳',
-    country: 'India - Chennai',
-    name: 'IIT Madras Research Park',
-    address: '32, Kanagam Road, Kanagam\nTharamani, Chennai - 600113',
-    phone: '+91 79048 77505',
-  },
-  {
-    flag: '🇮🇳',
-    country: 'India - Dharmapuri',
-    name: 'SIPCOT Manufacturing Hub',
+    name: 'India - Dharmapuri',
+    company: 'SIPCOT Manufacturing Hub',
     address: 'Bio-Pharmaceutical & MedTech\nDharmapuri, Tamil Nadu',
+    email: 'info@telth.org',
+  },
+  {
+    flag: '🇮🇳',
+    country: 'India - Salem',
+    name: 'GCC Tidel Neo',
+    address: 'P36Q+8W7, Kullagoundanoor, Karuppur, Salem, Tamil Nadu',
+    // phone: '+91 79048 77505',
   },
   {
     flag: '🇱🇨',
-    country: 'St. Lucia',
-    name: 'CUCOM Medical University',
+    name: 'St. Lucia',
+    company: 'CUCOM Medical University',
     address: '#1, Beausejour Road\nGros Islet, Saint Lucia',
+    email: 'info@telth.org',
   },
   {
     flag: '🇨🇳',
-    country: 'China',
-    name: 'Asia-Pacific Hub',
+    name: 'China',
+    company: 'Asia-Pacific Hub',
     address: 'Shanghai & Guangzhou\nFocus: Manufacturing & Distribution',
+    email: 'info@telth.org',
     badge: 'Expanding 2026',
   },
   {
     flag: '🌏',
-    country: 'Middle East',
-    name: 'MENA Regional Hub',
+    name: 'Middle East',
+    company: 'MENA Regional Hub',
     address: 'Dubai, UAE & Riyadh, KSA\nFocus: Healthcare Networks & Partnerships',
+    email: 'info@telth.org',
     badge: 'Launching 2026',
   },
 ];
@@ -99,17 +103,39 @@ function ContactForm() {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you for your message! We will get back to you shortly.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      organization: '',
-      inquiryType: '',
-      message: '',
+    const fd = new FormData();
+    fd.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY);
+    fd.append("first_name", formData.name);
+    fd.append("email", formData.email);
+    fd.append("phone", formData.phone);
+    fd.append("message", formData.message);
+    fd.append("organization", formData.organization);
+    fd.append("inquiryType", formData.inquiryType);
+    fd.append("subject", "New Contact Form Submission");
+    fd.append("botcheck", "");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: fd,
     });
+
+    const data = await response.json();
+
+    if (data.success) {
+      alert("Message sent successfully!");
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        organization: '',
+        inquiryType: '',
+        message: '',
+      });
+    } else {
+      alert(data.message || "Something went wrong. Please try again.");
+    }
   };
 
   const handleChange = (

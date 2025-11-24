@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <img src={telthLogo} alt='telthLogo' className='w-auto h-16'/>
-              <span className="text-xl font-semibold">Telth.org</span>
+              <span className="text-xl font-semibold">Telth</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Pioneering the world's first Quantum-AI Healthcare Ecosystem.
@@ -58,13 +58,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-[#E8C47C] font-semibold mb-4">Resources</h3>
+            <h3 className="text-primary font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
                 <a
                   href="/"
-                  className="text-gray-400 hover:text-[#D4A554] transition-colors"
-                  target="_blank"
+                  className="text-gray-400 hover:text-primary transition-colors"
+                  // target="_blank"
                   rel="noopener noreferrer"
                 >
                   Franchise Info
@@ -73,8 +73,8 @@ export default function Footer() {
               <li>
                 <a
                   href="/"
-                  className="text-gray-400 hover:text-[#D4A554] transition-colors"
-                  target="_blank"
+                  className="text-gray-400 hover:text-primary transition-colors"
+                  // target="_blank"
                   rel="noopener noreferrer"
                 >
                   Careers
@@ -83,8 +83,8 @@ export default function Footer() {
               <li>
                 <a
                   href="/"
-                  className="text-gray-400 hover:text-[#D4A554] transition-colors"
-                  target="_blank"
+                  className="text-gray-400 hover:text-primary transition-colors"
+                  // target="_blank"
                   rel="noopener noreferrer"
                 >
                   News & Blog
@@ -93,7 +93,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/contact"
-                  className="text-gray-400 hover:text-[#D4A554] transition-colors"
+                  className="text-gray-400 hover:text-primary transition-colors"
                 >
                   Contact
                 </Link>
@@ -102,12 +102,12 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-[#E8C47C] font-semibold mb-4">Legal</h3>
+            <h3 className="text-primary font-semibold mb-4">Legal</h3>
             <ul className="space-y-2">
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-[#D4A554] transition-colors"
+                  className="text-gray-400 hover:text-primary transition-colors"
                 >
                   Privacy Policy
                 </a>
@@ -115,7 +115,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-[#D4A554] transition-colors"
+                  className="text-gray-400 hover:text-primary transition-colors"
                 >
                   Terms of Service
                 </a>
@@ -123,7 +123,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-[#D4A554] transition-colors"
+                  className="text-gray-400 hover:text-primary transition-colors"
                 >
                   Cookie Policy
                 </a>
@@ -131,7 +131,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-[#D4A554] transition-colors"
+                  className="text-gray-400 hover:text-primary transition-colors"
                 >
                   Compliance
                 </a>

@@ -35,9 +35,9 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center space-x-3 group">
-            <img src={telthLogo} alt='telthLogo' className='w-auto h-16'/>
+            <img src={telthLogo} alt='telthLogo' className='w-auto h-12'/>
             <span className="text-white font-semibold text-xl tracking-wide">
-              Telth.org
+              Telth
             </span>
           </Link>
 
