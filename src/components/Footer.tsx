@@ -57,14 +57,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          {/* <div>
             <h3 className="text-primary font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
                 <a
                   href="/"
                   className="text-gray-400 hover:text-primary transition-colors"
-                  // target="_blank"
                   rel="noopener noreferrer"
                 >
                   Franchise Info
@@ -74,7 +73,6 @@ export default function Footer() {
                 <a
                   href="/"
                   className="text-gray-400 hover:text-primary transition-colors"
-                  // target="_blank"
                   rel="noopener noreferrer"
                 >
                   Careers
@@ -84,7 +82,6 @@ export default function Footer() {
                 <a
                   href="/"
                   className="text-gray-400 hover:text-primary transition-colors"
-                  // target="_blank"
                   rel="noopener noreferrer"
                 >
                   News & Blog
@@ -99,9 +96,9 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
-          <div>
+          {/* <div>
             <h3 className="text-primary font-semibold mb-4">Legal</h3>
             <ul className="space-y-2">
               <li>
@@ -137,7 +134,7 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
 
         <div className="pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
