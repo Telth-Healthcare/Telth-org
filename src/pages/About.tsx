@@ -281,12 +281,6 @@ function BoardOfDirectors() {
                 <h3 className="text-xl font-bold text-[#0A1F44] mb-1">{member.name}</h3>
                 <div className="text-[#D4A554] font-semibold mb-3">{member.title}</div>
                 <p className="text-[#2D3748] text-sm mb-4">{member.bio}</p>
-                <a
-                  href={member.linkedin}
-                  className="text-[#D4A554] hover:text-[#B8944A] text-sm font-medium inline-flex items-center"
-                >
-                  LinkedIn Profile →
-                </a>
               </div>
             </motion.div>
           ))}
