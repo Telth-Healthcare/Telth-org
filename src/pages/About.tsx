@@ -92,39 +92,33 @@ const values = [
 
 const boardMembers = [
   {
-    name: '[Board Member Name]',
-    title: 'Chairman & CEO',
-    bio: 'Placeholder text for board member experience and background information.',
+    name: 'Dr. Saravanan B.R., MS, PhD',
+    title: 'Chief Mentor – Telth Network',
+    bio: 'A visionary healthcare futurist with decades of international experience at the World Bank, United Nations, IMF, and IFC. Led the establishment and merger of an offshore American medical school valued at USD 176.85 million. Provides strategic oversight across multi-country operations, investment portfolios, and AI-enabled healthcare transformation.',
     linkedin: '#',
   },
   {
-    name: '[Board Member Name]',
+    name: 'Dr. Ramanathan (Ram) Raju, MD, MBA, FRCS, FACS, FACHE',
+    title: 'Chairman and President of Clinical Operations',
+    bio: "Former President & CEO of NYC Health + Hospitals and CEO of Cook County Health in Chicago. Recognized by Modern Healthcare among the '100 Most Influential People in Healthcare.' With over 40 years of experience leading major public health systems, he guides Telth's governance and global strategy for AI- and IoMT-enabled smart care integration.",
+    linkedin: '#',
+  },
+  {
+    name: "Mr. Vinay Preet Singh",
+    title: "Director & Senior Vice President – India and UK Operations",
+    bio: "Founding Partner of The Chambers®: Advocates & Legal Consultants and former Counsel at DSK Legal. Master's graduate in International Commercial Law from the University of Warwick (UK). Over a decade of experience advising Fortune 500 companies including Facebook, TCS, and Indian Oil. Leads Telth's India regulatory strategy, government partnerships, and market expansion.",
+    linkedin: "#"
+  },
+  {
+    name: 'Dr. Kanimozhi Raja, M.D., M.S.',
     title: 'Chief Technology Officer',
-    bio: 'Placeholder text for board member experience and background information.',
+    bio: 'M.D. from Johns Hopkins School of Medicine and M.S. from Stanford. Inventor of Telth and the Telth HES Box, and key architect of Root Cloud—a private, permissioned hybrid blockchain for medical data. Leads the end-to-end technology roadmap including platform architecture, device integration, data governance, and clinical decision-support protocols.',
     linkedin: '#',
   },
   {
-    name: '[Board Member Name]',
-    title: 'Chief Medical Officer',
-    bio: 'Placeholder text for board member experience and background information.',
-    linkedin: '#',
-  },
-  {
-    name: '[Board Member Name]',
-    title: 'Chief Financial Officer',
-    bio: 'Placeholder text for board member experience and background information.',
-    linkedin: '#',
-  },
-  {
-    name: '[Board Member Name]',
-    title: 'Independent Director',
-    bio: 'Placeholder text for board member experience and background information.',
-    linkedin: '#',
-  },
-  {
-    name: '[Board Member Name]',
-    title: 'Independent Director',
-    bio: 'Placeholder text for board member experience and background information.',
+    name: 'Angel Sharan S.B.',
+    title: 'Chief Research Officer & Network Business Strategist',
+    bio: 'Young Scientist Award winner, Johns Hopkins CTY Fellow, and Research Fellow from Cambridge International. Leads research on Root Cloud and TWBAN (Telth Wireless Body Area Network). Patent architect holding ownership of Root Cloud with G-Med ID and the P3DSC Protocol. Spearheads development of Telth Biochips (T-Chips) for ultra-sensitive early detection of TB, HIV, and cancer.',
     linkedin: '#',
   },
 ];
@@ -283,9 +277,6 @@ function BoardOfDirectors() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow"
             >
-              <div className="h-80 bg-gradient-to-br from-[#D4A554]/20 to-[#B8944A]/20 flex items-center justify-center">
-                <UsersIcon className="text-[#D4A554]" size={80} />
-              </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-[#0A1F44] mb-1">{member.name}</h3>
                 <div className="text-[#D4A554] font-semibold mb-3">{member.title}</div>
