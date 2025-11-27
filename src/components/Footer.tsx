@@ -57,6 +57,7 @@ export default function Footer() {
             </ul>
           </div>
 
+
           {/* <div>
             <h3 className="text-primary font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
