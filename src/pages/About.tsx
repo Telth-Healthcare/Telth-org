@@ -247,55 +247,55 @@ function Timeline() {
   );
 }
 
-function BoardOfDirectors() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+// function BoardOfDirectors() {
+//   const ref = useRef(null);
+//   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  return (
-    <section ref={ref} className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl sm:text-5xl font-bold text-[#0A1F44] mb-4">
-            Board of Directors
-          </h2>
-          <p className="text-xl text-[#2D3748]">
-            Experienced leaders guiding Telth's vision and growth
-          </p>
-        </motion.div>
+//   return (
+//     <section ref={ref} className="py-24 bg-white">
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//         <motion.div
+//           initial={{ opacity: 0, y: 30 }}
+//           animate={isInView ? { opacity: 1, y: 0 } : {}}
+//           transition={{ duration: 0.8 }}
+//           className="text-center mb-16"
+//         >
+//           <h2 className="text-4xl sm:text-5xl font-bold text-[#0A1F44] mb-4">
+//             Board of Directors
+//           </h2>
+//           <p className="text-xl text-[#2D3748]">
+//             Experienced leaders guiding Telth's vision and growth
+//           </p>
+//         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {boardMembers.map((member, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow"
-            >
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-[#0A1F44] mb-1">{member?.name || ""}</h3>
-                <div className="text-[#D4A554] font-semibold mb-3">{member?.title}</div>
-                <p className="text-[#2D3748] text-sm mb-4">{member?.bio}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+//         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+//           {boardMembers.map((member, index) => (
+//             <motion.div
+//               key={index}
+//               initial={{ opacity: 0, y: 30 }}
+//               animate={isInView ? { opacity: 1, y: 0 } : {}}
+//               transition={{ duration: 0.6, delay: index * 0.1 }}
+//               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow"
+//             >
+//               <div className="p-6">
+//                 <h3 className="text-xl font-bold text-[#0A1F44] mb-1">{member?.name || ""}</h3>
+//                 <div className="text-[#D4A554] font-semibold mb-3">{member?.title}</div>
+//                 <p className="text-[#2D3748] text-sm mb-4">{member?.bio}</p>
+//               </div>
+//             </motion.div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 
 function CoreValues() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="py-2 bg-white">
+    <section ref={ref} className="py-2 mt-10 mb-6 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -336,7 +336,7 @@ export default function About() {
       <PageHero />
       <MissionVision />
       <Timeline />
-      <BoardOfDirectors />
+      {/* <BoardOfDirectors /> */}
       <CoreValues />
     </>
   );
