@@ -37,9 +37,9 @@ const offices = [
   },
   {
     flag: '🇮🇳',
-    country: 'India - Salem',
-    name: 'GCC Tidel Neo',
-    address: 'P36Q+8W7, Kullagoundanoor, Karuppur, Salem, Tamil Nadu',
+    name: 'India - Salem',
+    company: 'GCC Tidel Neo',
+    address: 'P36Q+8W7, Karuppur, Salem, Tamil Nadu',
     // phone: '+91 79048 77505',
   },
   {
@@ -259,7 +259,7 @@ function ContactForm() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-bold text-[#0A1F44] mb-6">Our Offices</h2>
+            <h2 className="text-3xl font-bold text-[#0A1F44] mb-6">Our Operations</h2>
             <div className="space-y-4 max-h-[700px] overflow-y-auto pr-2">
               {offices.map((office, index) => (
                 <div
@@ -269,7 +269,7 @@ function ContactForm() {
                   <div className="flex items-start space-x-4">
                     <div className="text-3xl">{office.flag}</div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-[#0A1F44] mb-1">{office.country}</h3>
+                      <h6 className="font-bold text-[#0A1F44] mb-1">{office.company}</h6>
                       <p className="text-sm font-semibold text-[#D4A554] mb-2">{office.name}</p>
                       <div className="space-y-2 text-sm text-[#2D3748]">
                         <div className="flex items-start space-x-2">
