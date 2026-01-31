@@ -11,7 +11,7 @@ const companies = [
     meta: 'Company No: 14411590 | Est: October 2022',
     description:
       'Strategic hub for UK/European markets, offering Quantum-AI Smart Clinics, Micro-Labs, and health kiosks. Focused on R&D partnerships, regulatory alignment with UK/EU frameworks, and franchise licensing operations.',
-    link: 'https://telth-uk.com',
+    link: 'https://www.mytelth.com/',
     external: true,
   },
   {
@@ -20,7 +20,7 @@ const companies = [
     meta: 'CIN: U72900TZ2021PTC037139 | Est: December 2021',
     description:
       'Manufacturing powerhouse and operations center driving the telco-healthcare model. Smart Care Hubs, AI-powered diagnostics, IoMT device production, and nationwide care-manager network deployment.',
-    link: 'https://telth-india.com',
+    link: 'https://www.mytelth.com/',
     external: true,
   },
   {
@@ -29,7 +29,7 @@ const companies = [
     meta: 'Philanthropic & Public Good Division',
     description:
       'Bridging healthcare gaps through community diagnostics, telemedicine outreach, care manager training, and last-mile health access. Building the digital-health workforce of tomorrow.',
-    link: 'https://gmedid-foundation.org',
+    link: 'https://www.medpassedu.org',
     external: true,
   },
   {
@@ -38,7 +38,7 @@ const companies = [
     meta: 'Technology & Innovation Backbone',
     description:
       'Core IP development: RootCloud™ blockchain architecture, P3DSC™ precision care protocols, TWBAN™ IoMT networks, and Quantum-AI diagnostic engines powering the entire ecosystem.',
-    link: '/technology',
+    link: 'https://www.telth.ai/',
     external: false,
   },
   {
@@ -47,7 +47,7 @@ const companies = [
     meta: 'Membership & Payment Ecosystem',
     description:
       'Digital health payments through Care Pay™, T-Pay™, and T-Gold™ Token models. Membership-based ecosystem offering diagnostics, wellness benefits, and provider payment management.',
-    link: 'https://mytelth.com',
+    link: 'https://www.mytelth.com/',
     external: true,
   },
   {
@@ -56,7 +56,7 @@ const companies = [
     meta: 'Digital Wellness Marketplace',
     description:
       'E-commerce platform for health devices, IoMT wearables, diagnostics, and NatLife organic wellness products. Bridging wellness commerce with integrated healthcare delivery.',
-    link: 'https://telthmart.com',
+    link: 'https://www.natlife.org.in/',
     external: true,
   },
   {
@@ -65,7 +65,7 @@ const companies = [
     meta: 'Training & Education Division',
     description:
       'Knowledge Transfer Partnership (KTP) programs with UK universities (Warwick, UCLan). Training physicians, care managers, and collaborative providers on AI-enabled platforms.',
-    link: 'https://medpass-telth.com',
+    link: 'https://www.medpassedu.org',
     external: true,
   },
 ];
@@ -230,19 +230,28 @@ function Companies() {
                   </p>
 
                   {/* Button */}
-                  {company.external ? (
+{company.external ? (
                     <a
                       href={company.link}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevent event bubbling
+                        window.open(company.link, '_blank', 'noopener,noreferrer');
+                      }}
                       className="
                         inline-flex items-center space-x-2 text-[#D4A554] 
                         font-semibold transition-all duration-300
-                        group-hover:text-[#b98b37]
+                        hover:text-[#b98b37] hover:underline
+                        cursor-pointer
+                        relative z-50
                       "
                     >
                       <span>Visit Website</span>
-                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight 
+                        size={18} 
+                        className="group-hover:translate-x-1 transition-transform" 
+                      />
                     </a>
                   ) : (
                     <Link
@@ -250,14 +259,18 @@ function Companies() {
                       className="
                         inline-flex items-center space-x-2 text-[#D4A554] 
                         font-semibold transition-all duration-300
-                        group-hover:text-[#b98b37]
+                        hover:text-[#b98b37] hover:underline
+                        cursor-pointer
+                        relative z-50
                       "
                     >
                       <span>Learn More</span>
-                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight 
+                        size={18} 
+                        className="group-hover:translate-x-1 transition-transform" 
+                      />
                     </Link>
                   )}
-
                 </div>
               </div>
 
