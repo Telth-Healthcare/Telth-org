@@ -125,7 +125,7 @@ function ContactForm() {
     const data = await response.json();
 
     if (data.success) {
-      toast.success("Message sent successfully!");
+      toast.success("Message sent successfully! ");
       setFormData({
         name: '',
         email: '',
