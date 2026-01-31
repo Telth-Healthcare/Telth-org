@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+  import { ToastContainer } from 'react-toastify';
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import ChatWidget from "./components/ChatWidget";
@@ -30,6 +31,8 @@ function App() {
 
         <Footer />
         <ChatWidget />
+                <ToastContainer />
+
       </div>
     </Router>
   );

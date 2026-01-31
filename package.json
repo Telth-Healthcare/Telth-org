@@ -25,6 +25,7 @@
     "react-dom": "^18.3.1",
     "react-leaflet": "^4.2.1",
     "react-router-dom": "^7.9.5",
+    "react-toastify": "^11.0.5",
     "svgr": "^1.10.0",
     "tailwind-merge": "^3.4.0",
     "three": "^0.181.1"

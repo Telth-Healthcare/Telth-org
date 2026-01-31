@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Mail, Phone, MapPin, Send, Briefcase, Users, Handshake, Newspaper } from 'lucide-react';
+import { toast } from 'react-toastify';
 
 const offices = [
   {
@@ -124,7 +125,7 @@ function ContactForm() {
     const data = await response.json();
 
     if (data.success) {
-      alert("Message sent successfully!");
+      toast.success("Message sent successfully!");
       setFormData({
         name: '',
         email: '',
@@ -134,7 +135,7 @@ function ContactForm() {
         message: '',
       });
     } else {
-      alert(data.message || "Something went wrong. Please try again.");
+      toast.error(data.message || "Something went wrong. Please try again.");
     }
   };
 
