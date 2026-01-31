@@ -21,7 +21,7 @@ export default function Home() {
       <Hero onNavigate={handleForward} />
       <Vision />
       <WorldMap />
-      <Pillars forwardRef={forwardRef}/>
+      {/* <Pillars forwardRef={forwardRef}/> */}
       <MarketStats />
       <CTASection />
     </>
