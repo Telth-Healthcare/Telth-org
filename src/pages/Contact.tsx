@@ -17,7 +17,7 @@ const offices = [
     flag: '🇬🇧',
     name: 'United Kingdom',
     company: 'Telth Healthcare Pvt Ltd (UK)',
-    address: 'Suite 14, Ditton Park\nBotanica, Riding Ct Rd\nSlough - SL3 9LL, UK',
+    address: 'Centurion House, London Road, Staines-Upon-Thames, England, TW18 4AX',
     email: 'info@telth.org',
     phone: '+44 7554 469843',
   },
@@ -42,13 +42,6 @@ const offices = [
     company: 'GCC Tidel Neo',
     address: 'P36Q+8W7, Karuppur, Salem, Tamil Nadu',
     // phone: '+91 79048 77505',
-  },
-  {
-    flag: '🇱🇨',
-    name: 'St. Lucia',
-    company: 'CUCOM Medical University',
-    address: '#1, Beausejour Road\nGros Islet, Saint Lucia',
-    email: 'info@telth.org',
   },
   {
     flag: '🇨🇳',

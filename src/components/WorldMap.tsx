@@ -22,7 +22,7 @@ const offices = [
     city: 'Slough',
     name: 'United Kingdom Headquarters',
     company: 'Telth Healthcare Pvt Ltd (UK)',
-    address: 'Suite 14, Ditton Park\nBotanica, Riding Ct Rd\nSlough - SL3 9LL, UK',
+    address: 'Centurion House, London Road, Staines-Upon-Thames, England, TW18 4AX',
     email: 'info@telth.org',
     coordinates: [51.5074, -0.593] as [number, number],
   },
