@@ -88,6 +88,9 @@ function PageHero() {
 function ContactForm() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -99,36 +102,40 @@ function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const fd = new FormData();
-    fd.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY);
-    fd.append("first_name", formData.name);
-    fd.append("email", formData.email);
-    fd.append("phone", formData.phone);
-    fd.append("message", formData.message);
-    fd.append("organization", formData.organization);
-    fd.append("inquiryType", formData.inquiryType);
-    fd.append("subject", "New Contact Form Submission");
-    fd.append("botcheck", "");
+    if (loading) return;
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: fd,
-    });
+    setLoading(true);
 
-    const data = await response.json();
+    try {
+      const fd = new FormData();
+      fd.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY);
+      fd.append("first_name", formData.name);
+      fd.append("email", formData.email);
+      fd.append("phone", formData.phone);
+      fd.append("organization", formData.organization);
+      fd.append("inquiryType", formData.inquiryType);
+      fd.append("message", formData.message);
+      fd.append("subject", "New Contact Form Submission");
+      fd.append("source", "https://www.telth.org/");
+      fd.append("botcheck", "");
 
-    if (data.success) {
-      toast.success("Message sent successfully! ");
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        organization: '',
-        inquiryType: '',
-        message: '',
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: fd,
       });
-    } else {
-      toast.error(data.message || "Something went wrong. Please try again.");
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success("Message sent successfully!");
+        setSubmitted(true);
+      } else {
+        toast.error(data.message || "Something went wrong.");
+      }
+    } catch (err) {
+      toast.error("Network error. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -145,107 +152,101 @@ function ContactForm() {
     <section ref={ref} className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12">
+
+          {/* LEFT SIDE */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-bold text-[#0A1F44] mb-6">Send Us a Message</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm font-semibold text-[#2D3748] mb-2">
-                  Name *
-                </label>
+            <h2 className="text-3xl font-bold text-[#0A1F44] mb-6">
+              {submitted ? "Thank You!" : "Send Us a Message"}
+            </h2>
+
+            {submitted ? (
+              <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+                <h3 className="text-xl font-semibold text-green-800 mb-2">
+                   Message Sent Successfully
+                </h3>
+                <p className="text-green-700">
+                  Thank you for reaching out to Telth.  
+                  Our team will review your message and get back to you shortly.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <input
                   type="text"
                   name="name"
+                  placeholder="Name *"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4A554] focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 border rounded-lg"
                 />
-              </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-[#2D3748] mb-2">
-                  Email *
-                </label>
                 <input
                   type="email"
                   name="email"
+                  placeholder="Email *"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4A554] focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 border rounded-lg"
                 />
-              </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-[#2D3748] mb-2">Phone</label>
                 <input
                   type="tel"
                   name="phone"
+                  placeholder="Phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4A554] focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 border rounded-lg"
                 />
-              </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-[#2D3748] mb-2">
-                  Organization
-                </label>
                 <input
                   type="text"
                   name="organization"
+                  placeholder="Organization"
                   value={formData.organization}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4A554] focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 border rounded-lg"
                 />
-              </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-[#2D3748] mb-2">
-                  Inquiry Type *
-                </label>
                 <select
                   name="inquiryType"
                   value={formData.inquiryType}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4A554] focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 border rounded-lg"
                 >
-                  <option value="">Select an option</option>
+                  <option value="">Inquiry Type *</option>
                   <option value="investor">Investor Relations</option>
-                  <option value="partnership">Partnership Opportunities</option>
-                  <option value="franchise">Franchise Inquiry</option>
-                  <option value="media">Media & Press</option>
-                  <option value="general">General Inquiry</option>
+                  <option value="partnership">Partnership</option>
+                  <option value="franchise">Franchise</option>
+                  <option value="media">Media</option>
+                  <option value="general">General</option>
                 </select>
-              </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-[#2D3748] mb-2">
-                  Message *
-                </label>
                 <textarea
                   name="message"
+                  rows={5}
+                  placeholder="Message *"
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D4A554] focus:border-transparent transition-all resize-none"
+                  className="w-full px-4 py-3 border rounded-lg resize-none"
                 />
-              </div>
 
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-[#D4A554] to-[#B8944A] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl hover:shadow-[#D4A554]/30 transition-all duration-300 flex items-center justify-center space-x-2"
-              >
-                <span>Send Message</span>
-                <Send size={20} />
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-gradient-to-r from-[#D4A554] to-[#B8944A] text-white px-8 py-4 rounded-lg font-semibold text-lg disabled:opacity-50"
+                >
+                  {loading ? "Sending..." : "Send Message"}
+                </button>
+              </form>
+            )}
           </motion.div>
 
           <motion.div
