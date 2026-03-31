@@ -107,36 +107,37 @@ function ContactForm() {
     setLoading(true);
 
     try {
-      const fd = new FormData();
-      fd.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY);
-      fd.append("first_name", formData.name);
-      fd.append("email", formData.email);
-      fd.append("phone", formData.phone);
-      fd.append("organization", formData.organization);
-      fd.append("inquiryType", formData.inquiryType);
-      fd.append("message", formData.message);
-      fd.append("subject", "New Contact Form Submission");
-      fd.append("source", "https://www.telth.org/");
-      fd.append("botcheck", "");
+  const payload = {
+    first_name: formData.name,
+    email: formData.email,
+    phone: formData.phone,
+    organization: formData.organization,
+    inquiryType: formData.inquiryType,
+    message: formData.message,
+    subject: "New Contact Form Submission",
+  };
 
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: fd,
-      });
+  const response = await fetch("https://contactforms-henna.vercel.app/api/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
 
-      const data = await response.json();
+  const data = await response.json();
 
-      if (data.success) {
-        toast.success("Message sent successfully!");
-        setSubmitted(true);
-      } else {
-        toast.error(data.message || "Something went wrong.");
-      }
-    } catch (err) {
-      toast.error("Network error. Please try again later.");
-    } finally {
-      setLoading(false);
-    }
+  if (data.success) {
+    toast.success("Message sent successfully!");
+    setSubmitted(true);
+  } else {
+    toast.error(data.message || "Something went wrong.");
+  }
+} catch (err) {
+  toast.error("Network error. Please try again later.");
+} finally {
+  setLoading(false);
+}
   };
 
   const handleChange = (
