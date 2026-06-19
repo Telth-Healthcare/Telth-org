@@ -46,7 +46,7 @@ function App() {
         </Routes>
 
         <Footer />
-        <ChatWidget />
+        {/* <ChatWidget /> */}
                 <ToastContainer />
 
       </div>
